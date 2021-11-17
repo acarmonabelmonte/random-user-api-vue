@@ -1,3 +1,7 @@
+import axios from 'axios';
+
+const uri = `${process.env.VUE_APP_API_URL}`;
+
 const state = {
     loginUser: {},
     randomUsers: [],
@@ -14,6 +18,16 @@ const actions = {
         commit
     }) {
         commit('setLocalUser', {});
+    },
+    async getRandomUsers({
+        commit
+    }) {
+        await axios.get(`${uri}/?results=6&gender=female`).then(response => {
+                commit('setRandomUsers', response.data.results);
+            })
+            .catch(response => {
+                console.log('something wrong happened', response.data)
+            })
     }
 }
 
