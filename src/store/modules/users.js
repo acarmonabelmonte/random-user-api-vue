@@ -3,21 +3,21 @@ import axios from 'axios';
 const uri = `${process.env.VUE_APP_API_URL}`;
 
 const state = {
-    loginUser: {},
+    currentUser: null,
     randomUsers: [],
-    randomUserSelected: {}
+    randomUserSelected: null
 };
 
 const actions = {
     login({
         commit
     }, userData) {
-        commit('setLocalUser', userData);
+        commit('setCurrentUser', userData);
     },
     logout({
         commit
     }) {
-        commit('setLocalUser', {});
+        commit('setCurrentUser', null);
     },
     async getRandomUsers({
         commit
@@ -32,7 +32,7 @@ const actions = {
 }
 
 const mutations = {
-    setLocalUser: (state, loginUser) => state.loginUser = loginUser,
+    setCurrentUser: (state, currentUser) => state.currentUser = currentUser,
     setRandomUsers: (state, randomUsers) => state.randomUsers = randomUsers,
     setRandomUserSelected: (state, randomUserSelected) => state.localUser = randomUserSelected,
 }

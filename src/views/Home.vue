@@ -1,28 +1,16 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <h1>Home Page</h1>
+    <LoginForm />
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-import { mapActions } from "vuex";
+import LoginForm from "@/components/Form/LoginForm.vue";
 export default {
   name: "Home",
   components: {
-    // HelloWorld
-  },
-  methods: {
-    ...mapActions({
-      getRandomUsers: "users/getRandomUsers",
-    }),
-  },
-  mounted() {
-    this.getRandomUsers();
-  },
-  computed: {
-    randomUsers() {
-      return this.$store.state.users.randomUsers;
-    },
+    LoginForm,
   },
 };
 </script>
