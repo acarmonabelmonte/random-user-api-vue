@@ -1,14 +1,72 @@
 <template>
-  <form @submit.prevent="login">
-    <label>Name:</label><br />
-    <input type="text" v-model="user.name" /><br />
-    <label>Email:</label><br />
-    <input type="text" v-model="user.email" /><br />
-    <label>Phone Number:</label><br />
-    <input type="text" v-model="user.phone_number" /><br />
-    <label>Postal Code:</label><br />
-    <input type="text" v-model="user.postal_code" /><br />
-    <button type="submit">Save</button>
+  <form class="mt-12 w-full px-2 sm:px-6" @submit.prevent="login">
+    <div class="flex flex-col mt-5">
+      <label for="email" class="text-lg font-semibold leading-tight"
+        >Name</label
+      >
+      <input
+        required
+        v-model="user.name"
+        id="name"
+        name="name"
+        class="
+          signup-input
+          focus:outline-none focus:border focus:border-indigo-700
+        "
+        type="text"
+      />
+    </div>
+    <div class="flex flex-col mt-5">
+      <label for="email" class="text-lg font-semibold leading-tight"
+        >Email</label
+      >
+      <input
+        required
+        v-model="user.email"
+        id="email"
+        name="email"
+        class="
+          signup-input
+          focus:outline-none focus:border focus:border-indigo-700
+        "
+        type="email"
+      />
+    </div>
+    <div class="flex flex-col mt-5">
+      <label for="email" class="text-lg font-semibold leading-tight"
+        >Phone</label
+      >
+      <input
+        required
+        v-model="user.phone_number"
+        id="phone"
+        name="phone"
+        class="
+          signup-input
+          focus:outline-none focus:border focus:border-indigo-700
+        "
+        type="tel"
+      />
+    </div>
+    <div class="flex flex-col mt-5">
+      <label for="email" class="text-lg font-semibold leading-tight"
+        >Postal Code</label
+      >
+      <input
+        required
+        v-model="user.postal_code"
+        id="postal_code"
+        name="postal_code"
+        class="
+          signup-input
+          focus:outline-none focus:border focus:border-indigo-700
+        "
+        type="text"
+      />
+    </div>
+    <div class="flex flex-col mt-4 w-full lg:w-1/3 mb-4">
+      <button type="submit" class="signup-btn">Sign Up</button>
+    </div>
   </form>
 </template>
 
@@ -19,10 +77,10 @@ export default {
   data() {
     return {
       user: {
-        name: "",
-        email: "",
-        phone_number: "",
-        postal_code: "",
+        name: "Example Name",
+        email: "example@email.com",
+        phone_number: "666666666",
+        postal_code: "66666",
       },
     };
   },

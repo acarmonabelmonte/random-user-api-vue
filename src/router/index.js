@@ -32,6 +32,9 @@ router.beforeEach((to, from, next) => {
   if (to.name !== 'Home' && !store.state.users.currentUser) next({
     name: 'Home'
   })
+  if (to.name === 'Home' && store.state.users.currentUser) next({
+    name: 'RandomUsers'
+  })
   else next()
 })
 

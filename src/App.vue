@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import LogoutButton from "@/components/UI/LogoutButton.vue";
+// import LogoutButton from "@/components/UI/LogoutButton.vue";
 export default {
   name: "Home",
   components: {
-    LogoutButton,
+    // LogoutButton,
   },
   computed: {
     currentUser() {
