@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <LogoutButton />
+    <LogoutButton v-if="currentUser" />
     <router-view />
   </div>
 </template>
@@ -11,6 +11,11 @@ export default {
   name: "Home",
   components: {
     LogoutButton,
+  },
+  computed: {
+    currentUser() {
+      return this.$store.state.users.currentUser;
+    },
   },
 };
 </script>
