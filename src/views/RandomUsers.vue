@@ -11,7 +11,6 @@
 import { mapActions } from "vuex";
 export default {
   name: "RandomUsers",
-  components: {},
   methods: {
     ...mapActions({
       getRandomUsers: "users/getRandomUsers",
