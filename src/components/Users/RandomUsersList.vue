@@ -1,5 +1,48 @@
 <template>
   <div>
+    <RandomUserModal
+      v-show="isModalVisible"
+      @close="closeModal"
+      v-if="randomUserSelected"
+    >
+      <template v-slot:header>
+        {{ `${randomUserSelected.name.first} ${randomUserSelected.name.last}` }}
+      </template>
+
+      <template v-slot:body>
+        <ul class="mx-5 py-2">
+          <li>
+            <span class="font-bold">Age: </span>{{ randomUserSelected.dob.age }}
+          </li>
+          <li>
+            <span class="font-bold">Country: </span
+            >{{ randomUserSelected.location.country }}
+          </li>
+          <li>
+            <span class="font-bold">Street: </span
+            >{{
+              `${randomUserSelected.location.street.name} ${randomUserSelected.location.street.number}`
+            }}
+          </li>
+          <li>
+            <span class="font-bold">Email: </span>{{ randomUserSelected.email }}
+          </li>
+          <li>
+            <span class="font-bold">Username: </span
+            >{{ randomUserSelected.login.username }}
+          </li>
+          <li>
+            <span class="font-bold">Phone: </span>{{ randomUserSelected.phone }}
+          </li>
+        </ul>
+        <div>
+          <img
+            class="object-none h-48 w-full"
+            :src="randomUserSelected.picture.large"
+          />
+        </div>
+      </template>
+    </RandomUserModal>
     <div class="w-full h-full">
       <div class="container mx-auto px-6">
         <div class="sm:shadow rounded bg-white">
@@ -101,6 +144,8 @@
 </template>
 
 <script>
+import RandomUserModal from "@/components/Overlay/RandomUserModal.vue";
+import { mapMutations } from "vuex";
 export default {
   props: {
     users: {
@@ -108,9 +153,32 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
+  components: {
+    RandomUserModal,
+  },
   methods: {
+    ...mapMutations({
+      setRandomUserSelected: "users/setRandomUserSelected",
+    }),
     showDetails(user) {
-      console.log(user);
+      this.setRandomUserSelected(user);
+      this.showModal();
+    },
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+  },
+  computed: {
+    randomUserSelected() {
+      return this.$store.state.users.randomUserSelected;
     },
   },
 };

@@ -34,7 +34,7 @@ const actions = {
 const mutations = {
     setCurrentUser: (state, currentUser) => state.currentUser = currentUser,
     setRandomUsers: (state, randomUsers) => state.randomUsers = randomUsers,
-    setRandomUserSelected: (state, randomUserSelected) => state.localUser = randomUserSelected,
+    setRandomUserSelected: (state, randomUserSelected) => state.randomUserSelected = randomUserSelected,
 }
 
 export default {

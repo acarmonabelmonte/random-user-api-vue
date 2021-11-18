@@ -6,7 +6,6 @@
         shadow
         relative
         bg-white
-        z-10
         -mt-8
         sm:-mt-12 sm:mb-8
         lg:w-1/3
