@@ -1,8 +1,7 @@
 <template>
   <div class="bg-white h-screen text-primary-500">
     <div class="mx-auto flex lg:justify-center h-full flex-col lg:flex-row">
-      <form
-        v-on:submit.prevent
+      <div
         class="w-full lg:w-1/2 flex justify-center bg-gray-100 dark:bg-gray-900"
       >
         <div
@@ -40,7 +39,7 @@
           </div>
           <LoginForm />
         </div>
-      </form>
+      </div>
       <div
         class="
           w-full

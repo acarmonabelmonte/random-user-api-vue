@@ -9,7 +9,7 @@ html {
 }
 
 .logout-btn {
-    @apply inline-flex items-center justify-center w-8 h-8 mr-2 text-pink-100 transition-colors duration-150 bg-pink-700 hover:bg-pink-800 rounded-full;
+    @apply inline-flex items-center justify-center w-12 h-12 mr-2 text-primary-500 transition-colors duration-150 bg-gray-200 hover:bg-gray-300 rounded-full;
 }
 
 .signup-btn {
